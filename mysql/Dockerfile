@@ -15,6 +15,10 @@ ADD supervisord.conf /etc/supervisord.conf
 
 RUN rm -rf /var/lib/mysql/*
 
+RUN usermod -u 1000 mysql
+RUN mkdir -p /var/run/mysqld
+RUN chmod -R 777 /var/run/mysqld
+
 ADD create_mysql_admin_user.sh /create_mysql_admin_user.sh
 RUN chmod 755 /*.sh
 
