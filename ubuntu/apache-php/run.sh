@@ -1,5 +1,6 @@
 #!/bin/bash
 chown www-data:www-data /app -R
+usermod -u 1000 www-data
 
 if [ "$ALLOW_OVERRIDE" = "**False**" ]; then
     unset ALLOW_OVERRIDE
