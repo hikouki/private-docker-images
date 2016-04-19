@@ -9,6 +9,12 @@ else
     a2enmod rewrite
 fi
 
+if [ "$DOCUMENT_ROOT" = "**Fales**" ]; then
+    unset DOCUMENT_ROOT
+else
+    sed -i "s'DocumentRoot /var/www/html'DocumentRoot ${DOCUMENT_ROOT}'g" /etc/apache2/sites-available/000-default.conf
+fi
+
 source /etc/apache2/envvars
 tail -F /var/log/apache2/* &
 exec apache2 -D FOREGROUND
