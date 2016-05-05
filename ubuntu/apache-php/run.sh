@@ -9,7 +9,7 @@ else
     a2enmod rewrite
 fi
 
-if [ "$DOCUMENT_ROOT" = "**Fales**" ]; then
+if [ "$DOCUMENT_ROOT" = "**False**" ]; then
     unset DOCUMENT_ROOT
 else
     sed -i "s'DocumentRoot /var/www/html'DocumentRoot ${DOCUMENT_ROOT}'g" /etc/apache2/sites-available/000-default.conf
